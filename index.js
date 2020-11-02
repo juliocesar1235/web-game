@@ -1,4 +1,4 @@
-const apiUrl = 'https://protected-wildwood-55685.herokuapp.com/'
+const apiUrl = 'https://protected-wildwood-55685.herokuapp.com'
 const webSocketUrl = 'wss://protected-wildwood-55685.herokuapp.com/cable'
 const gameRoomList = document.getElementById('rooms-list');
 const newPickForm = document.getElementById('new-pick');
