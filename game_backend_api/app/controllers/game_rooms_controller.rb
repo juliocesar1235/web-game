@@ -15,7 +15,7 @@ class GameRoomsController < ApplicationController
 
     def show
         game_room = GameRoom.find_by(id: params[:id])
-        render json: game_room
+        render json: game_room, include: [:picks]
     end
 
     private

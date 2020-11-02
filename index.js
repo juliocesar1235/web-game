@@ -24,7 +24,6 @@ function renderJoinGame(room){
     let roomName = document.createElement('h3');
     roomName.textContent = room.name;
     roomDiv.prepend(roomName)
-
     newPickForm.style = '';
     newPickForm.dataset.gameRoomId = room.id
 
@@ -66,8 +65,8 @@ function createGameRoom(roomId){
            return;
        }
        console.log("FROM RAILS BACKEND: ", msg);
-       if(msg.pick){
-           renderPick(msg.pick)
+       if(msg.message){
+           renderPick(msg.message)
        }
    };
     socket.onerror = function(error) {
@@ -110,7 +109,7 @@ document.addEventListener('DOMContentLoaded',() => {
             fetch(`${apiUrl}/game_rooms/${event.target.dataset.roomId}`)
                 .then(response => response.json())
                 .then(roomObj => {
-                    renderRoom(roomObj)
+                    renderJoinGame(roomObj)
                 })
 
             // Open up a websocket connection for that specific chat room
@@ -120,7 +119,6 @@ document.addEventListener('DOMContentLoaded',() => {
 
     newPickForm.addEventListener('submit', event =>{
         event.preventDefault();
-        debugger
         fetch(`${apiUrl}/picks`,{
             method: 'POST',
             headers: {
@@ -128,8 +126,10 @@ document.addEventListener('DOMContentLoaded',() => {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                content: event.target[0].value,
-                game_room_id: event.target.dataset.roomId
+                pick: {
+                    content: event.target[0].value,
+                    play_room_id: parseInt(event.target.dataset.gameRoomId)
+                }
             })
         })
         //.then(response => response.json())

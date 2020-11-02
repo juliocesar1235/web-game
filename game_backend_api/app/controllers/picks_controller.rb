@@ -1,6 +1,6 @@
 class PicksController < ApplicationController
     def create
-        pick = Pick.new(pick_params)
+        pick = Pick.new(content: params[:pick][:content], game_room_id: params[:pick][:play_room_id])
         if pick.save
             game_room = GameRoom.find(pick.game_room_id)
             GameRoomChannel.broadcast_to(game_room, pick)
@@ -12,7 +12,4 @@ class PicksController < ApplicationController
 
     private
 
-    def pick_params
-        params.require(:pick).permit(:content, :game_room_id)
-    end
 end

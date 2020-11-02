@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 game_rooms = [
-    ["PvP"],
-    ["PvP competitivo"]
+    "PvP",
+    "PvP competitivo"
 ]
 
 game_rooms.each do |name|

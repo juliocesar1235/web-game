@@ -2,8 +2,8 @@
 
 one:
   content: MyString
-  play_room_id: 1
+  game_room_id: 1
 
 two:
   content: MyString
-  play_room_id: 1
+  game_room_id: 1
