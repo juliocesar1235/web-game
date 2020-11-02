@@ -1,5 +1,5 @@
-const apiUrl = 'http://localhost:3000'
-const webSocketUrl = 'ws://localhost:3000/cable'
+const apiUrl = 'https://protected-wildwood-55685.herokuapp.com'
+const webSocketUrl = 'ws://protected-wildwood-55685.herokuapp.com/cable'
 const gameRoomList = document.getElementById('rooms-list');
 const newPickForm = document.getElementById('new-pick');
 const pickList = document.getElementById('picks-list');
@@ -66,6 +66,7 @@ function createGameRoom(roomId){
        }
        console.log("FROM RAILS BACKEND: ", msg);
        if(msg.message){
+
            renderPick(msg.message)
        }
    };
