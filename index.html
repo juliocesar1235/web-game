@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocking Game</title>
+</head>
+<body>
+    <div id="room-div">
+        <h1>Game room</h1>
+        <form id="new-room">
+            <h3>Create new game room</h3>
+            <label>Room name:</label>
+            <input type="text">
+            <br><br>
+            <button type="submit">Create</button>
+            <br><br>
+        </form>
+        <h3>Rooms available:</h3>
+        <div id="rooms-list">
+        
+        </div>
+    </div>
+    <div id="pick-div">
+        <form id="new-pick" style="display: none">
+            <label>Your pick:</label><br>
+            <input type="text">
+            <button type="submit">Send your pick</button>
+            <br><br>
+        </form>
+        <div id="picks-list">
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
